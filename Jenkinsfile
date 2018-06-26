@@ -1,3 +1,6 @@
+/* import shared library */
+@Library('jenkins-shared-library')_
+
 pipeline {
     agent any
 
@@ -16,6 +19,13 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+    post {
+        always {
+        /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
+            slackNotifier(currentBuild.currentResult)
+            cleanWs()
         }
     }
 }
