@@ -25,6 +25,7 @@ pipeline {
         always {
         /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
             slackNotifier(currentBuild.currentResult)
+            clienetSlackNotifier(currentBuild.currentResult, "slack-ci")
             cleanWs()
         }
     }
