@@ -26,7 +26,7 @@ pipeline {
         /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
             /* slackNotifier(currentBuild.currentResult) */ 
             clientSlackNotifier(currentBuild.currentResult, "slack-token1", "https://boian.slack.com/services/hooks/jenkins-ci/",  "#build", "d9supnnbYF3sZuhbcBzrZZPd") 
-            SlackNotifier(currentBuild.currentResult) 
+            slackNotifier(currentBuild.currentResult) 
             cleanWs()
         }
     }
